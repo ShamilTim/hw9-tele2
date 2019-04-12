@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Архивные тарифы Tele2 - список и информация, данные тарифы не доступны к подключению Республика
+        Татарстан</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2><b>Архивные тарифы</b></h2>
+            <table class="table">
+              <tbody>
+              {% for item in archived %}
+                <tr>
+                  <th scope="row" style="width: 200px;">{{item.name}}
+                      <p>
+                      {% if item.price == None %}
+                      {% elif item.price == 0 %}
+                          <font>Без абонентской платы</font>
+                      {% else %}
+                          <font size="+5">{{item.price}}</font>
+                          <font size="+3"><sup>&#8381;</sup></font>
+                          {% if item.price_period == 'month' %}
+                              <font size="+1">/месяц</font>
+                          {% else %}
+                              <font size="+1">/день</font>
+                          {% endif %}
+                      {% endif %}
+                      </p>
+                  </th>
+                  <td style="width: 120px;">
+                      {% if item.gb == -1 %}
+                        <font size="+2"><b>БЕЗЛИМИТНЫЙ<br />ИНТЕРНЕТ</b></font>
+                      {% elif item.gb == 0 %}
+                      {% else %}
+                        <font size="+2"><b>{{item.gb}}</b>ГБ</font>
+                      {% endif %}
+                      <p>
+                      {% if item.gb_unlim != None %}
+                          <font size="+1">+безлимитные</font>
+                              <p>{{item.gb_unlim}}</p>
+                      {% endif %}
+                  </td>
+                  <td style="width: 230px;">
+                      {% if item.minutes != 0 %}
+                        <font size="+2"><b>{{item.minutes}}</b> мин.</font>
+                      {% endif %}
+                      <p>
+                      {% if item.minutes_unlim_tele2 == True %}
+                        <font size="+1">+ безлимит на Tele2 России</font>
+                      {% endif %}
+                      </p>
+                  </td>
+                  <td style="width: 120px;">
+                      {% if item.sms != 0 %}
+                        <font size="+2"><b>{{item.sms}}</b> SMS</font>
+                      {% endif %}
+                  </td>
+                  <td  style="width: 120px;">
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+            <p align="center"><font size="+2"><a href="{{ url_for('index')}}" style="color: Black"><u>Текущие тарифы</u></a></font></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
