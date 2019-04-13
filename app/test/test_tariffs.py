@@ -1,4 +1,15 @@
-# from app.tariffs import Tariff, TariffManager
+from app.tariffs import Tariff, TariffManager
+
+
+# class TestTariffManager:
+#    def test_actual(self):
+#        assert [Tariff('Мой разговор', price=190, gb=3, minutes=250)] == TariffManager.actual(TariffManager(self))
+
+
+# def test___init__(self):
+#    my_talk = Tariff('Мой разговор', price=190, gb=3, minutes=250)
+#    result = Tariff.__init__(self, name='Мой разговор', price=190, gb=3, minutes=250)
+#    assert my_talk == result
 
 
 def test_actual():
@@ -6,7 +17,8 @@ def test_actual():
     # manager = TariffManager()
     # my_talk = Tariff('Мой разговор', price=190, gb=3, minutes=250)
     # manager.add(my_talk)
-    # result = manager.actual()
+    # actual = manager.actual()
+    # result = actual
     # assert my_talk == result
 
 

@@ -1,2 +1,4 @@
 [run]
-omit = app/main.py
+omit =
+    app/main.py
+    app/tariffs.py
