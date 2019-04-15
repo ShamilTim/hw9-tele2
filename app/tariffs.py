@@ -31,7 +31,7 @@ class TariffManager:
         self.items.append(item)
 
     def actual(self):
-        return filter(lambda x: not x.archived, self.items)
+        return list(filter(lambda x: not x.archived, self.items))
 
     def archived(self):
         return list(filter(lambda o: o.archived, self.items))  # передаем имя функции! вызывать будем сам filter
