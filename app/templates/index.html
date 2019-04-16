@@ -47,7 +47,10 @@
                       <p>
                       {% if item.gb_unlim != None %}
                           <font size="+1">+безлимитные</font>
-                              <p>{{', '.join(item.gb_unlim)}}</p>
+                              <p>{% for item in item.gb_unlim %}
+                                    <font size="+1">{{item}}</font>
+                                 {% endfor %}
+                              </p>
                       {% endif %}
                   </td>
                   <td style="width: 230px;">
