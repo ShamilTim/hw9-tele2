@@ -8,6 +8,8 @@
     <title>Тарифы сотовой связи Tele2, самые выгодные тарифы Республика Татарстан для мобильного телефона</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
@@ -47,11 +49,16 @@
                       <p>
                       {% if item.gb_unlim != None %}
                           <font size="+1">+безлимитные</font>
-                              <p>{% for item in item.gb_unlim %}
-                                    <font size="+1">{{item}}</font>
-                                 {% endfor %}
-                              </p>
+                          <p> {% for item in item.gb_unlim %}
+                                {% if item == 'vk' %}
+                                  <a><i class="fab fa-vk fa-lg"></i></a>
+                                {% elif item == 'fb' %}
+                                  <a><i class="fab fa-facebook-f fa-lg"></i></a>
+                                {% endif %}
+                              {% endfor %}
+                          </p>
                       {% endif %}
+                      </p>
                   </td>
                   <td style="width: 230px;">
                       {% if item.minutes != 0 %}
